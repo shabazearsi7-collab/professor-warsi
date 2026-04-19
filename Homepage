@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professor Warsi — Master the Art of Communication</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A0F1E;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --cream: #F5EFE0;
+    --warm-white: #FDFAF4;
+    --muted: #8A8070;
+    --card-bg: #111827;
+    --border: rgba(201,168,76,0.2);
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–navy);
+color: var(–cream);
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; align-items: center; justify-content: space-between;
+padding: 1.4rem 6%;
+background: rgba(10,15,30,0.85);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(–border);
+}
+
+.logo {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.4rem;
+font-weight: 700;
+color: var(–gold);
+letter-spacing: 0.02em;
+}
+
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+color: var(–cream);
+text-decoration: none;
+font-size: 0.88rem;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+opacity: 0.75;
+transition: opacity 0.2s, color 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(–gold); }
+
+.nav-cta {
+background: var(–gold);
+color: var(–navy) !important;
+padding: 0.55rem 1.4rem;
+border-radius: 2px;
+font-weight: 500 !important;
+opacity: 1 !important;
+letter-spacing: 0.08em;
+transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(–gold-light) !important; }
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+display: flex; align-items: center;
+padding: 9rem 6% 6rem;
+position: relative;
+overflow: hidden;
+}
+
+.hero-bg {
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 60% 70% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+}
+
+.hero-lines {
+position: absolute; inset: 0; overflow: hidden;
+pointer-events: none;
+}
+.hero-lines::before {
+content: ‘’;
+position: absolute;
+top: -10%; left: 55%;
+width: 1px; height: 140%;
+background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.15), transparent);
+transform: rotate(8deg);
+}
+.hero-lines::after {
+content: ‘’;
+position: absolute;
+top: -10%; left: 62%;
+width: 1px; height: 140%;
+background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.06), transparent);
+transform: rotate(8deg);
+}
+
+.hero-content { position: relative; max-width: 680px; }
+
+.hero-badge {
+display: inline-flex; align-items: center; gap: 0.5rem;
+border: 1px solid var(–border);
+padding: 0.4rem 1rem;
+border-radius: 2px;
+font-size: 0.78rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 2rem;
+animation: fadeUp 0.8s ease both;
+}
+.hero-badge span { width: 6px; height: 6px; background: var(–gold); border-radius: 50%; display: inline-block; }
+
+h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(3rem, 6vw, 5.5rem);
+font-weight: 900;
+line-height: 1.05;
+letter-spacing: -0.02em;
+margin-bottom: 1.5rem;
+animation: fadeUp 0.8s 0.15s ease both;
+}
+
+h1 em {
+font-style: italic;
+color: var(–gold);
+}
+
+.hero-sub {
+font-size: 1.12rem;
+line-height: 1.7;
+opacity: 0.65;
+max-width: 520px;
+margin-bottom: 2.5rem;
+animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-actions {
+display: flex; gap: 1rem; flex-wrap: wrap;
+animation: fadeUp 0.8s 0.45s ease both;
+}
+
+.btn-primary {
+background: var(–gold);
+color: var(–navy);
+padding: 0.9rem 2.2rem;
+border: none; border-radius: 2px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem; font-weight: 500;
+letter-spacing: 0.06em; text-transform: uppercase;
+cursor: pointer; text-decoration: none;
+transition: background 0.2s, transform 0.2s;
+display: inline-block;
+}
+.btn-primary:hover { background: var(–gold-light); transform: translateY(-2px); }
+
+.btn-ghost {
+background: transparent;
+color: var(–cream);
+padding: 0.9rem 2.2rem;
+border: 1px solid rgba(245,239,224,0.25);
+border-radius: 2px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem; font-weight: 400;
+letter-spacing: 0.06em; text-transform: uppercase;
+cursor: pointer; text-decoration: none;
+transition: border-color 0.2s, color 0.2s;
+display: inline-block;
+}
+.btn-ghost:hover { border-color: var(–gold); color: var(–gold); }
+
+.hero-stats {
+display: flex; gap: 3rem; margin-top: 4rem;
+padding-top: 2.5rem;
+border-top: 1px solid var(–border);
+animation: fadeUp 0.8s 0.6s ease both;
+}
+.stat-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 2.2rem; font-weight: 700;
+color: var(–gold);
+display: block;
+}
+.stat-label {
+font-size: 0.78rem; letter-spacing: 0.08em;
+text-transform: uppercase; opacity: 0.5;
+margin-top: 0.2rem;
+}
+
+/* ── SECTIONS ── */
+section { padding: 6rem 6%; }
+
+.section-label {
+font-size: 0.75rem; letter-spacing: 0.14em;
+text-transform: uppercase; color: var(–gold);
+margin-bottom: 1rem;
+}
+
+h2 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2rem, 4vw, 3.2rem);
+font-weight: 700; line-height: 1.15;
+margin-bottom: 1.2rem;
+}
+
+.section-intro {
+font-size: 1.05rem; line-height: 1.75;
+opacity: 0.6; max-width: 560px;
+margin-bottom: 3.5rem;
+}
+
+/* ── ABOUT ── */
+.about { background: var(–card-bg); }
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 5rem; align-items: center;
+}
+.about-img-wrap {
+position: relative;
+}
+.about-img-frame {
+width: 100%; aspect-ratio: 4/5;
+background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.03));
+border: 1px solid var(–border);
+border-radius: 4px;
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Playfair Display’, serif;
+font-size: 5rem; font-style: italic;
+color: rgba(201,168,76,0.3);
+position: relative;
+overflow: hidden;
+}
+.about-img-frame::after {
+content: ‘’;
+position: absolute; bottom: 0; left: 0; right: 0;
+height: 40%;
+background: linear-gradient(to top, rgba(17,24,39,0.8), transparent);
+}
+.about-accent {
+position: absolute;
+bottom: -1.5rem; right: -1.5rem;
+width: 80px; height: 80px;
+border: 2px solid var(–gold);
+border-radius: 2px;
+z-index: -1;
+}
+
+.about-text h2 { margin-bottom: 1.5rem; }
+.about-quote {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.25rem; font-style: italic;
+color: var(–gold); opacity: 0.9;
+border-left: 3px solid var(–gold);
+padding-left: 1.2rem;
+margin: 2rem 0;
+line-height: 1.6;
+}
+.about-bio { opacity: 0.65; line-height: 1.8; margin-bottom: 1rem; }
+
+/* ── COURSES ── */
+.courses-header { text-align: center; }
+.courses-header .section-intro { margin: 0 auto 3.5rem; }
+.courses-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+}
+
+.course-card {
+background: var(–card-bg);
+border: 1px solid var(–border);
+border-radius: 4px;
+padding: 2rem;
+transition: border-color 0.3s, transform 0.3s;
+position: relative;
+overflow: hidden;
+}
+.course-card::before {
+content: ‘’;
+position: absolute; top: 0; left: 0; right: 0; height: 3px;
+background: linear-gradient(90deg, var(–gold), transparent);
+transform: scaleX(0); transform-origin: left;
+transition: transform 0.3s;
+}
+.course-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); }
+.course-card:hover::before { transform: scaleX(1); }
+
+.course-icon {
+width: 48px; height: 48px;
+border: 1px solid var(–border);
+border-radius: 2px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.4rem;
+margin-bottom: 1.4rem;
+background: rgba(201,168,76,0.05);
+}
+.course-tag {
+font-size: 0.7rem; letter-spacing: 0.1em;
+text-transform: uppercase; color: var(–gold);
+margin-bottom: 0.6rem;
+}
+.course-card h3 {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.2rem; font-weight: 700;
+margin-bottom: 0.8rem; line-height: 1.3;
+}
+.course-card p { font-size: 0.88rem; opacity: 0.55; line-height: 1.7; margin-bottom: 1.5rem; }
+.course-meta {
+display: flex; gap: 1rem;
+font-size: 0.78rem; opacity: 0.45; letter-spacing: 0.04em;
+}
+
+/* ── WHY ── */
+.why { background: var(–card-bg); }
+.why-grid {
+display: grid;
+grid-template-columns: 1fr 1.4fr;
+gap: 5rem; align-items: start;
+}
+.why-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+.why-item {
+display: flex; gap: 1rem; align-items: flex-start;
+padding: 1.4rem;
+border: 1px solid var(–border);
+border-radius: 4px;
+background: rgba(201,168,76,0.02);
+transition: border-color 0.2s;
+}
+.why-item:hover { border-color: rgba(201,168,76,0.4); }
+.why-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.6rem; font-weight: 700;
+color: rgba(201,168,76,0.3);
+flex-shrink: 0; line-height: 1;
+margin-top: 0.2rem;
+}
+.why-item h4 {
+font-family: ‘Playfair Display’, serif;
+font-size: 1rem; font-weight: 700;
+margin-bottom: 0.3rem;
+}
+.why-item p { font-size: 0.86rem; opacity: 0.55; line-height: 1.6; }
+
+.why-visual {
+position: sticky; top: 8rem;
+}
+.big-quote {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(1.8rem, 3.5vw, 3rem);
+font-style: italic;
+font-weight: 400;
+line-height: 1.35;
+color: var(–cream);
+margin-bottom: 2rem;
+}
+.big-quote strong { color: var(–gold); font-weight: 700; font-style: normal; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5rem;
+}
+.test-card {
+border: 1px solid var(–border);
+border-radius: 4px;
+padding: 2rem;
+background: var(–card-bg);
+}
+.stars { color: var(–gold); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+.test-card blockquote {
+font-family: ‘Playfair Display’, serif;
+font-style: italic; font-size: 1rem;
+line-height: 1.65; opacity: 0.8;
+margin-bottom: 1.5rem;
+}
+.test-author { display: flex; align-items: center; gap: 0.8rem; }
+.author-av {
+width: 40px; height: 40px;
+border-radius: 50%;
+background: linear-gradient(135deg, rgba(201,168,76,0.3), rgba(201,168,76,0.1));
+border: 1px solid var(–border);
+display: flex; align-items: center; justify-content: center;
+font-size: 1rem;
+}
+.author-name { font-size: 0.88rem; font-weight: 500; }
+.author-role { font-size: 0.75rem; opacity: 0.45; margin-top: 0.1rem; }
+
+/* ── CTA ── */
+.cta-section {
+text-align: center;
+background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(10,15,30,0) 70%);
+border-top: 1px solid var(–border);
+border-bottom: 1px solid var(–border);
+}
+.cta-section h2 { margin-bottom: 1rem; }
+.cta-section p { opacity: 0.6; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer {
+padding: 3rem 6%;
+border-top: 1px solid var(–border);
+display: flex; align-items: center; justify-content: space-between;
+flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { color: var(–cream); opacity: 0.4; text-decoration: none; font-size: 0.82rem; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 0.8; }
+.footer-copy { font-size: 0.8rem; opacity: 0.3; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+opacity: 0; transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+.about-grid, .why-grid { grid-template-columns: 1fr; }
+.courses-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+.why-visual { position: static; }
+.hero-stats { gap: 2rem; }
+.nav-links { display: none; }
+}
+@media (max-width: 600px) {
+.courses-grid, .testimonials-grid { grid-template-columns: 1fr; }
+.hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+nav { padding: 1rem 5%; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="logo">Professor Warsi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#enroll" class="nav-cta">Enroll Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Communication Education Platform</div>
+    <h1>Master the Art of<br><em>Powerful Communication</em></h1>
+    <p class="hero-sub">Learn how to speak with confidence, connect with any audience, and transform your words into impact — with Professor Warsi's proven framework.</p>
+    <div class="hero-actions">
+      <a href="#courses" class="btn-primary">Explore Courses</a>
+      <a href="#about" class="btn-ghost">Meet the Professor</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">10K+</span>
+        <span class="stat-label">Students Taught</span>
+      </div>
+      <div>
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Courses Available</span>
+      </div>
+      <div>
+        <span class="stat-num">98%</span>
+        <span class="stat-label">Satisfaction Rate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img-frame">W</div>
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-text reveal">
+      <p class="section-label">About the Professor</p>
+      <h2>Communication is a skill, not a talent.</h2>
+      <div class="about-quote">"Every great leader, every successful professional — they all mastered one thing first: the way they communicate."</div>
+      <p class="about-bio">Professor Warsi is a communication educator, author, and speaker with over a decade of experience helping students, professionals, and leaders find their voice. His teaching blends practical frameworks with real-world application.</p>
+      <p class="about-bio">From public speaking and storytelling to body language and negotiation — Professor Warsi covers the full spectrum of human communication in a way that is clear, actionable, and transformative.</p>
+      <br>
+      <a href="#courses" class="btn-primary">Start Learning Today</a>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+
+<section id="courses">
+  <div class="courses-header reveal">
+    <p class="section-label">What You'll Learn</p>
+    <h2>Courses Designed to Transform</h2>
+    <p class="section-intro">Each course is built around a single outcome — making you a more confident, effective, and compelling communicator.</p>
+  </div>
+  <div class="courses-grid">
+
+```
+<div class="course-card reveal">
+  <div class="course-icon">🎤</div>
+  <p class="course-tag">Foundation</p>
+  <h3>Public Speaking Mastery</h3>
+  <p>Overcome fear, structure your speeches, and command any room with confidence and clarity.</p>
+  <div class="course-meta"><span>⏱ 8 Hours</span><span>📚 24 Lessons</span></div>
+</div>
+
+<div class="course-card reveal">
+  <div class="course-icon">🧠</div>
+  <p class="course-tag">Intermediate</p>
+  <h3>The Art of Storytelling</h3>
+  <p>Learn how to craft narratives that move people, inspire action, and make your message unforgettable.</p>
+  <div class="course-meta"><span>⏱ 6 Hours</span><span>📚 18 Lessons</span></div>
+</div>
+
+<div class="course-card reveal">
+  <div class="course-icon">🤝</div>
+  <p class="course-tag">Professional</p>
+  <h3>Persuasion & Influence</h3>
+  <p>Master the psychology of persuasion to communicate your ideas and win trust in any situation.</p>
+  <div class="course-meta"><span>⏱ 7 Hours</span><span>📚 21 Lessons</span></div>
+</div>
+
+<div class="course-card reveal">
+  <div class="course-icon">🪞</div>
+  <p class="course-tag">Body Language</p>
+  <h3>Non-Verbal Communication</h3>
+  <p>Understand and command your body language to reinforce your words and project authority.</p>
+  <div class="course-meta"><span>⏱ 5 Hours</span><span>📚 15 Lessons</span></div>
+</div>
+
+<div class="course-card reveal">
+  <div class="course-icon">📝</div>
+  <p class="course-tag">Writing</p>
+  <h3>Write to Communicate</h3>
+  <p>From emails to presentations — write with clarity, purpose, and a style that gets results.</p>
+  <div class="course-meta"><span>⏱ 6 Hours</span><span>📚 20 Lessons</span></div>
+</div>
+
+<div class="course-card reveal">
+  <div class="course-icon">💼</div>
+  <p class="course-tag">Advanced</p>
+  <h3>Communication for Leaders</h3>
+  <p>Develop the presence and communication skills that define great leaders and inspire teams.</p>
+  <div class="course-meta"><span>⏱ 10 Hours</span><span>📚 30 Lessons</span></div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- WHY -->
+
+<section class="why" id="why">
+  <div class="why-grid">
+    <div>
+      <p class="section-label">Why Professor Warsi</p>
+      <h2>Learning that actually changes you</h2>
+      <div class="why-list">
+
+```
+    <div class="why-item reveal">
+      <div class="why-num">01</div>
+      <div>
+        <h4>Practical Frameworks</h4>
+        <p>No theory for theory's sake. Every lesson gives you a tool you can use immediately in real life.</p>
+      </div>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-num">02</div>
+      <div>
+        <h4>Learn at Your Own Pace</h4>
+        <p>Access all courses anytime, anywhere. Lifetime access with regular new content added.</p>
+      </div>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-num">03</div>
+      <div>
+        <h4>Community of Learners</h4>
+        <p>Join thousands of students who support, challenge, and grow with each other every day.</p>
+      </div>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-num">04</div>
+      <div>
+        <h4>Expert Mentorship</h4>
+        <p>Get direct guidance from Professor Warsi through live sessions, Q&As, and feedback forums.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="why-visual reveal">
+  <p class="big-quote">"The one skill that multiplies every other skill you have is <strong>communication.</strong>"</p>
+  <p style="opacity:0.45; font-size:0.88rem; line-height:1.7;">Whether you want to grow in your career, lead with impact, build relationships, or grow an audience — communication is the foundation everything else is built on.</p>
+  <br><br>
+  <a href="#enroll" class="btn-primary">Join the Platform</a>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section id="testimonials">
+  <div style="text-align:center" class="reveal">
+    <p class="section-label">Student Reviews</p>
+    <h2>Words from Our Community</h2>
+    <p class="section-intro" style="margin: 0 auto 3.5rem;">Real students. Real transformation.</p>
+  </div>
+  <div class="testimonials-grid">
+
+```
+<div class="test-card reveal">
+  <div class="stars">★★★★★</div>
+  <blockquote>"Professor Warsi's course on public speaking changed my life. I went from terrified to confident in just weeks."</blockquote>
+  <div class="test-author">
+    <div class="author-av">👨</div>
+    <div>
+      <div class="author-name">Arjun Mehta</div>
+      <div class="author-role">Marketing Manager</div>
+    </div>
+  </div>
+</div>
+
+<div class="test-card reveal">
+  <div class="stars">★★★★★</div>
+  <blockquote>"The storytelling framework alone was worth ten times the price. My presentations at work are now completely different."</blockquote>
+  <div class="test-author">
+    <div class="author-av">👩</div>
+    <div>
+      <div class="author-name">Priya Sharma</div>
+      <div class="author-role">MBA Student</div>
+    </div>
+  </div>
+</div>
+
+<div class="test-card reveal">
+  <div class="stars">★★★★★</div>
+  <blockquote>"I never thought I could hold a room's attention. Professor Warsi showed me exactly how — step by step, with patience."</blockquote>
+  <div class="test-author">
+    <div class="author-av">🧑</div>
+    <div>
+      <div class="author-name">Rahul Qureshi</div>
+      <div class="author-role">Entrepreneur</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section" id="enroll">
+  <div class="reveal">
+    <p class="section-label">Ready to Begin?</p>
+    <h2>Your journey starts with one word.</h2>
+    <p>Enroll today and get lifetime access to all courses, live sessions, and a community that will push you to grow.</p>
+    <a href="#courses" class="btn-primary">Enroll Now — It's Free to Start</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="logo">Professor Warsi</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Professor Warsi. All rights reserved.</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger course cards
+  document.querySelectorAll('.course-card').forEach((c, i) => {
+    c.style.transitionDelay = (i * 0.08) + 's';
+  });
+</script>
+
+</body>
+</html>
